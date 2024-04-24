@@ -164,3 +164,21 @@ SECURE_SSL_REDIRECT = bool(os.getenv("DJANGO_SECURE_SSL_REDIRECT", False))
 
 SESSION_COOKIE_SECURE = bool(os.getenv("DJANGO_SESSION_COOKIE_SECURE", False))
 CSRF_COOKIE_SECURE = bool(os.getenv("DJANGO_CSRF_COOKIE_SECURE", False))
+
+SOCIALACCOUNT_PROVIDERS = {
+    "google": {
+        "APPS": [
+            {
+                "client_id": os.getenv("GOOGLE_CLIENT_ID", ""),
+                "secret": os.getenv("GOOGLE_CLIENT_SECRET", ""),
+            },
+        ],
+        "SCOPE": [
+            "profile",
+            "email",
+        ],
+        "AUTH_PARAMS": {
+            "access_type": "online",
+        },
+    }
+}
