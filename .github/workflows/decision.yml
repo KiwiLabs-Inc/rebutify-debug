@@ -96,21 +96,14 @@ jobs:
           git commit -m "$ISSUE_TITLE"
           git status
 
-      - name: Determine decision branch name
-        id: determine_branch_name
-        run: |
-          echo "DECISION_BRANCH=docs/${ISSUE_NUMBER}_decision-$subject" >> $GITHUB_OUTPUT
-
       - name: Push changes
         id: push_changes
-        env: 
-          DECISION_BRANCH: ${{ steps.determine_branch_name.outputs.DECISION_BRANCH }}
         run: |
+          echo "Currently on branch:"
+          git rev-parse --abbrev-ref HEAD
           echo "Pushing changes..."
-          git push origin HEAD:${{ DECISION_BRANCH }}
+          git push origin HEAD:docs/${{ISSUE_NUMBER}}_decision-${subject}
           git status
-          echo "git branch:"
-          git branch
           echo "git log:"
           git log --oneline -n 3
           echo "subject=$subject" >> $GITHUB_OUTPUT
