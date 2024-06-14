@@ -1,7 +1,7 @@
 Official repository of [rebutify.org](https://rebutify.org)  
 [Status page](https://vj0kytyy.status.cron-job.org/)
 
-# Table of Content
+# Table of Content 
 
 - [Table of Content](#table-of-content)
 - [1. Installation](#1-installation)
