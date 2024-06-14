@@ -105,7 +105,7 @@ jobs:
           echo "Currently on branch:"
           git rev-parse --abbrev-ref HEAD
           echo "Pushing changes..."
-          git push origin HEAD:docs/${{ISSUE_NUMBER}}_decision-${subject}
+          git push origin HEAD:docs/${ISSUE_NUMBER}_decision-$subject
           git status
           echo "git log:"
           git log --oneline -n 3
