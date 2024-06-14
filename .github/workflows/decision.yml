@@ -64,9 +64,11 @@ jobs:
       - name: Create decision file
         id: create_file
         run: |
-          # Create a new markdown file with the decision template as content
-          sudo bash -c 'cat docs/decisions/_template.md >> someDecision.md'
-          echo "The decision file has been created at: $dir_path"
+          cd docs
+          touch test.md
+          echo "Testing" > test.md
+          echo "Docs folder content:"
+          ls
           
       - name: Commit changes
         id: commit_changes
