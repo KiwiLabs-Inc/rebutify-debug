@@ -98,6 +98,9 @@ jobs:
 
       - name: Push changes
         id: push_changes
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
           echo "Currently on branch:"
           git rev-parse --abbrev-ref HEAD
